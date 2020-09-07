@@ -1,0 +1,6 @@
+[submodule "src/@ractf/ui-kit"]
+	path = src/@ractf/ui-kit
+	url = https://github.com/ractf/ui-kit
+[submodule "src/docs"]
+	path = src/docs
+	url = https://github.com/ractf/docs
