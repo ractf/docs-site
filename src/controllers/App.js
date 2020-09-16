@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 
-import { TextBlock, Page as BasePage, H1, H2 } from "@ractf/ui-kit";
+import { TextBlock, Page as BasePage, H1, H2, Scrollbar } from "@ractf/ui-kit";
 import Routes from "controllers/Routes";
 
 
@@ -36,7 +36,9 @@ class ErrorBoundary extends React.PureComponent {
 const App = () => {
     return (
         <ErrorBoundary>
-            <Routes />
+            <Scrollbar primary>
+                <Routes />
+            </Scrollbar>
         </ErrorBoundary>
     );
 };

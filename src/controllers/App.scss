@@ -21,10 +21,15 @@ body {
     padding: 0;
     overflow-x: hidden;
     font-size: 1rem;
+    line-height: 1.5;
 }
 
 a {
     text-decoration: none;
+    color: #4582ec;
+    &:hover, &:focus {
+        color: #1559cf;
+    }
 }
 
 code {
