@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+  repository_dispatch:
+    types: [deploy_docs_site]
 
 jobs:
   build:
@@ -15,6 +17,9 @@ jobs:
 
     - name: Checkout submodules
       uses: textbook/git-checkout-submodule-action@master
+
+    - name: Update docs
+      run: cd src/docs && git pull && cd ../..
 
     - name: Use Node.js 14
       uses: actions/setup-node@v1
