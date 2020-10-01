@@ -19,6 +19,7 @@ import React from "react";
 import { Switch as Switch_, Route as Route_, Redirect as Redirect_ } from "react-router-dom";
 
 import DocsPage from "pages/DocsPage";
+import OpenAPI from "pages/OpenAPI";
 
 const Route = React.memo(Route_);
 const Switch = React.memo(Switch_);
@@ -30,6 +31,7 @@ const Routes = () => {
         <Route path="/" exact>
             <Redirect to="/intro" />
         </Route>
+        <Route path="/openapi-schema" component={OpenAPI} exact />
         <Route>
             <DocsPage />
         </Route>

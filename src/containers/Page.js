@@ -32,7 +32,7 @@ const Items = ({ items, path = "/" }) => {
     </>;
 };
 
-const Page = ({ children }) => {
+const Page = ({ children, noBase }) => {
     const tree = { "": [] };
     Object.keys(docs).forEach(key => {
         const path = key.replace(/^\/+/, "").replace(/\/+$/, "").split("/");
@@ -45,11 +45,13 @@ const Page = ({ children }) => {
         obj[""].push(path[path.length - 1]);
     });
 
+    const Base = !noBase ? BasePage : "div";
+
     return (
         <SideNav header={<H4>RACTF Docs</H4>} items={<Items items={tree} />} LinkElem={Link} ractfSidebar>
-            <BasePage>
+            <Base>
                 {children}
-            </BasePage>
+            </Base>
         </SideNav>
     );
 };
