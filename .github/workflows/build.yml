@@ -6,6 +6,7 @@ on:
       - master
   repository_dispatch:
     types: [deploy_docs_site]
+  workflow_dispatch: null
 
 jobs:
   build:
