@@ -23,7 +23,7 @@ jobs:
       run: sudo apt install jq
 
     - name: Update schema
-      run: "curl $(curl https://api.github.com/repos/ractf/core/actions/artifacts | jq '.artifacts[0].archive_download_url' -r) -H 'Authorization: token ${{ secrets.GH_API_TOKEN }}' -L | gunzip > public/openapi-schema.yml"
+      run: "curl $(curl https://api.github.com/repos/ractf/core/actions/artifacts 2>/dev/null | jq '[ .[\"artifacts\"][] | select(.name == \"openapi-schema.yml\") ] | first | .[\"archive_download_url\"]' -r) -H 'Authorization: token ${{ secrets.GH_API_TOKEN }}' -L | gunzip > public/openapi-schema.yml"
 
     - name: Use Node.js 14
       uses: actions/setup-node@v1
